@@ -1,0 +1,114 @@
+# installing required libraries
+
+!pip install kagglehub google-generativeai pandas scikit-learn sentence-transformers
+
+
+# downloading the dataset
+
+import kagglehub
+
+dataset_path = kagglehub.dataset_download("hugodarwood/epirecipes")
+
+print("Dataset downloaded to:", dataset_path)
+
+# reading the json file with recipes
+
+import pandas as pd
+
+df=pd.read_json("/content/sample_data/full_format_recipes.json")
+
+
+# previewing the data
+df[['title', 'ingredients', 'directions', 'categories']].head(5000)
+
+# clearning and preparing the data
+
+recipes = pd.DataFrame(df)
+recipes = recipes.dropna(subset=['ingredients', 'directions'])
+recipes = recipes[['title', 'ingredients', 'directions', 'categories']]
+
+# cleaning ingredient text
+
+def clean_ingredients(ings):
+    return [i.lower().strip() for i in ings]
+
+recipes['ingredients'] = recipes['ingredients'].apply(clean_ingredients)
+
+# converting list to ingredient string
+recipes['ingredient_text'] = recipes['ingredients'].apply(lambda x: ', '.join(x))
+
+# joining directions into one string
+recipes['directions'] = recipes['directions'].apply(lambda steps: ' '.join(steps))
+
+# filtering for easy and quick recipes
+
+def is_easy_or_quick(cats):
+    return any('easy' in c.lower() or 'quick' in c.lower() for c in cats)
+
+recipes = recipes[recipes['categories'].apply(is_easy_or_quick)]
+
+# splitting data to train, validate, and test
+
+from sklearn.model_selection import train_test_split
+
+train_data, temp_data = train_test_split(recipes, test_size=0.2, random_state=1)
+val_data, test_data = train_test_split(temp_data, test_size=0.5, random_state=1)
+
+# text embedding with sentence transformers
+
+from sentence_transformers import SentenceTransformer
+
+embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+train_data['embedding'] = train_data['ingredient_text'].apply(lambda text: embedding_model.encode(text))
+
+# finding similar recipes
+
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+
+def find_similar_recipes(user_ingredients):
+    user_text = ', '.join(user_ingredients).lower()
+    user_vector = embedding_model.encode(user_text)
+
+    similarities = train_data['embedding'].apply(
+        lambda vec: cosine_similarity([user_vector], [vec])[0][0]
+    )
+
+    top_idxs = np.argsort(similarities)[-3:][::-1]
+    return train_data.iloc[top_idxs][['title', 'ingredients', 'directions']]
+
+# using gemini ai to generate a recipe
+
+import google.generativeai as genai
+
+
+genai.configure(api_key="AIzaSyAeiLJM8oZtp6mE14VwGY8js8O3EeEefcs")
+
+model = genai.GenerativeModel('gemini-2.5-flash')
+
+def generate_recipe_gemini(ingredients):
+    prompt = f"Create a quick and beginner-friendly recipe using these ingredients: {', '.join(ingredients)}"
+    response = model.generate_content(prompt)
+    return response.text
+
+
+# comparing real vs ai recipe
+
+def compare_recipes(real_text, ai_text):
+    real_vec = embedding_model.encode(real_text)
+    ai_vec = embedding_model.encode(ai_text)
+    return cosine_similarity([real_vec], [ai_vec])[0][0]
+
+# running the whole process
+
+my_ingredients = ['chicken', 'rice', 'onion']
+
+similar_recipes = find_similar_recipes(my_ingredients)
+ai_recipe = generate_recipe_gemini(my_ingredients)
+
+real_directions = similar_recipes.iloc[0]['directions']
+similarity = compare_recipes(real_directions, ai_recipe)
+
+print("Gemini AI Recipe:", ai_recipe)
+print("Closest Real Recipe:", similar_recipes.iloc[0]['title'])
+print("Similarity Score:", similarity)
