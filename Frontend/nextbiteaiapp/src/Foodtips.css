@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+
+
+.foodtips{
+    text-align: center;
+    padding: 4rem 15rem 6rem;
+    background: rgba(249, 250, 251, 1);;
+}
+
+.foodtips h1{
+    color: black;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+  
+}
+
+.foodtips p {
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.foodtips-titles{
+  background: none;
+}
+
+.foodtips-titles h1{
+  background: none;
+}
+
+.foodtips-titles p{
+  background: none;
+  margin-bottom: 2.5rem;
+}
+
+
+.accordion-button {
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: black;
+    gap: 10px; 
+}
+
+.accordion-button:hover{
+    text-decoration: underline;
+    color: #000000; 
+  }
+
+.accordion-button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+
+.accordion {
+    max-width: 700px;
+    margin: 0 auto;
+    background: none;
+  }
+  
+.accordion-item {
+    border: 1px solid #dee2e6;
+    border-radius: 12px !important;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+
+
+.accordion-body {
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    padding: 1rem;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: .8rem;
+  }
+  
+
+.accordion-body p{
+  text-align: left;
+  font-family: "Alexandria", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: .9rem;
+  
+}
+
+.bullets{
+  text-align: left;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.576)
+}
+
+
+/* button.accordion-button:focus {
+  background-color: rgb(235, 231, 231);
+} */

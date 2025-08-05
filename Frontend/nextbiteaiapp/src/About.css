@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+
+.about {
+    background: rgba(249, 250, 251, 1);
+    padding: 6rem 15rem;
+}
+
+.about-info{
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 3rem; 
+    background: none;
+}
+
+
+.about h1{
+    color: black;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+    background: none;
+}
+
+
+.image1 img{
+    border-radius: 15px;
+    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.5));
+    background: none;
+}
+
+.nextbiteai-about{
+    color: rgba(0, 153, 102, 1);
+    background: none;
+
+}
+
+.about-text{
+    background: none;
+}
+
+.about-text p.paragraph1 {
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 250;
+    font-size: .9rem;
+    color: black;
+    margin-bottom: 12px;
+    background: none;
+}
+
+.about-text p.paragraph2 {
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 250;
+    font-size: .9rem;
+    color: black;
+    margin-bottom: 12px;
+    background: none;
+}
+
+.about-text p.paragraph3 {
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 250;
+    font-size: .9rem;
+    color: black;
+    background: none;
+}
+
+
+.about-bottom{
+   border: none;
+   background-color: rgb(239, 238, 238);
+   font-family: "Alexandria", sans-serif;
+   font-style: normal;
+   font-weight: 300;
+   font-size: .8rem;
+   border-radius: 20px;
+   padding: 9.5px 16px;
+   
+}
+
+.buttons-bottom{
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    background: none;
+}
+
+
+

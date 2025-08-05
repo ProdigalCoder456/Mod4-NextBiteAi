@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(16, 24, 40, 1);
+    padding: 2rem;
+    align-items: center;
+    margin: 0;
+    
+}
+
+.logo2{
+    color: white;
+    background: none;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3rem; 
+}
+
+.copyright-info{
+    color: rgba(255, 255, 255, 0.635);
+    background: none;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 250;
+    font-size: .8rem;
+}
+
+.media-icons{
+    background: none;
+}
