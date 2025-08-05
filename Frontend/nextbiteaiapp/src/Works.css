@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+
+
+.how-it-works{
+    text-align: center;
+    padding: 4rem 15rem 6rem;
+}
+
+.how-it-works h1{
+    color: black;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+}
+
+.how-it-works p{
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 2.5rem;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+.card-title{
+    color: black;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 1.2rem;
+    text-align: left;
+    margin-top: 4px;
+    margin-bottom: 11px !important;
+}
+
+p.card-text{
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 250;
+    font-size: .9rem;
+    color: black;
+    text-align: left;
+}
+
+.card {
+    transition: transform 0.4s ease-in-out;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    border: 2px solid rgba(0, 153, 102, 1);
+    box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, 0.236);
+}
+  
