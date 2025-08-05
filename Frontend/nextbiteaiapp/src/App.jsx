@@ -3,6 +3,7 @@ import Hero from './sections/Hero'
 import About from './sections/About'
 import Works from './sections/Works'
 import Foodtips from './sections/Foodtips'
+import Chatbot from './sections/Chatbot'
 import Footer from './components/Footer'
 
 import './index.css'
@@ -29,7 +30,10 @@ function App() {
 
     <div id="tips"><Foodtips /> </div> 
 
+    <Chatbot />
+
     </main>
+
 
      <Footer/>
     </>
