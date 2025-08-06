@@ -1,0 +1,39 @@
+  .recipe-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Alexandria', sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .recipe-title {
+    font-size: 1.5rem;
+    color: #02704b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .recipe-desc {
+    color: #7273729d;
+    margin-bottom: 1rem;
+  }
+  
+  .recipe-section {
+    margin-bottom: 1.2rem;
+  }
+  
+  .recipe-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #2c2c2c;
+  }
+  
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  

@@ -14,8 +14,8 @@ const About = () => {
 
         <div className='about-text'>
         <h1>About <span className='nextbiteai-about'>NextBite.ai</span></h1>
-        <p className='paragraph1'>NextBite.ai was created to make cooking easier, smarter, and less wasteful. Powered by Google's Gemini Flash 2.0 model, our AI chatbot transforms your leftover ingredients into delicious, simple, beginner-friendly recipes.</p>
-        <p className='paragraph2'>Whether you're new to cooking or just need quick, no-fuss meal ideas, our bot keeps things straightforward. No fancy techniques, no hard-to-find ingredients—just practical, tasty meals from what you already have. </p>
+        <p className='paragraph1'>NextBite.ai was created to make cooking easier, smarter, and less wasteful. Powered by Google's Gemini Flash 2.0 model, our AI recipe generator transforms your leftover ingredients into delicious, simple, beginner-friendly recipes.</p>
+        <p className='paragraph2'>Whether you're new to cooking or just need quick, no-fuss meal ideas, our generator keeps things straightforward. No fancy techniques, no hard-to-find ingredients—just practical, tasty meals from what you already have. </p>
         <p className='paragraph3'>We designed NextBite.ai with busy home cooks, conscious users looking to reduce waste, frugal-conscious cooks protecting their grocery budgets, health-conscious eaters seeking fresh meal ideas, and busy families in mind.</p>
 
         <div className='buttons-bottom'>

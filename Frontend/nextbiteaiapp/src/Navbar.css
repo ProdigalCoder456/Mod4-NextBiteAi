@@ -2,17 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
 
 
-.navbar{
+
+.navtop{ 
     display: flex;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
-    background-color: #ffffff;
-    z-index:1000;
-    padding: 1rem 2rem;
     align-items: center;
-    border-bottom: 1px solid #eaeaea;
-    
+    flex-wrap: wrap;
+    position: sticky;
+    padding: 0.5rem 6rem; 
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    border-bottom: 1px solid #084c4c50;
+}
+ 
+.navbar{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center ;
 }
 
 .logo{
@@ -23,6 +32,8 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -30,9 +41,9 @@
     list-style: none;
     display: flex;
     gap: 1.7rem;
-    display: flex;
-    margin: 0;
+    margin: 10px;
     padding: 0;
+
 }
 
 
@@ -41,24 +52,41 @@
     font-family: "Alexandria", sans-serif;
     font-style: normal;
     font-weight: 350;
-    font-size: 14px;
+    font-size: 15px;
 }
 
-  
-
-
+.navbar li:hover{
+    color: #10b67f;
+    transition: color 0.3s ease;
+}
 .cta-top{
-    border: 1px solid black;
+    border: none;
     padding: .5rem 1rem;
     border-radius: 30px;
     font-family: "Alexandria", sans-serif;
     font-style: normal;
     font-weight: 350;
-    font-size: 13.5px;
+    font-size: 14px;
     cursor: pointer;
-    
+    background-color: #009966;
+    color: white;
+    text-decoration: none;
 }
 
+
+.cta-top:hover{
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 30px;
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #02704bf4;
+    transition: background-color .2s ease-in-out;
+    color: white;
+}
 
 
 
