@@ -24,7 +24,7 @@ const Works = () => {
             <img src={image2} className="card-img-top" alt="Step 1" />
             <div className="card-body">
               <h5 className="card-title"><Refrigerator color="#009966" style={{marginRight: '6.5px'}} /> 1. Tell Us What You Have</h5>
-              <p className="card-text">Got leftovers? Just tell the chatbot a few ingredients you have on hand—like “rice, chicken, broccoli.” No need to measure or overthink—just share what’s in your fridge.</p>
+              <p className="card-text">Got leftovers? Just tell the generator a few ingredients you have on hand—like “rice, chicken, broccoli.” Trying to eat healthier or avoid certain foods? No problem. Add your preferences, and we’ll tailor the recipe for you.</p>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Works = () => {
             <img src={image3} className="card-img-top" alt="Step 2" />
             <div className="card-body">
               <h5 className="card-title"><Sparkles color="#009966" style={{marginRight: '6.5px'}} /> 2. Get Instant Recipes</h5>
-              <p className="card-text">Our AI will instantly suggest simple, beginner-friendly recipes based on your ingredients. Each recipe is easy to follow, requires no fancy tools, and is designed for real-life kitchens.</p>
+              <p className="card-text">Our AI generator will instantly suggest simple, beginner-friendly recipes based on your ingredients and preferences. Each recipe is easy to follow, requires no fancy tools, and is designed for real-life kitchens.</p>
             </div>
           </div>
         </div>

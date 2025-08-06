@@ -1,4 +1,5 @@
-import { Link } from 'react-scroll'
+import { Link as ScrollLink} from 'react-scroll'
+import {Link as RouterLink} from 'react-router-dom'
 import '../Navbar.css'
 
 import {ChefHat} from 'lucide-react';
@@ -7,19 +8,23 @@ import {ChefHat} from 'lucide-react';
 const Navbar = () => {
 
     return (
-       <nav className="navbar">
+        
+        <div className='navtop'>
 
-        <div className = "logo"> <ChefHat color="#009966"/> NextBite.ai</div>
+        <RouterLink to ="/" className = "logo"> <ChefHat color="#009966"/>NextBite.ai</RouterLink>
+        <nav className="navbar">
 
         <ul>
-            <li><Link to="about" smooth ={true} duration= {100}>ABOUT</Link></li>
-            <li><Link to= "works" smooth ={true} duration= {100}>HOW IT WORKS</Link></li>
-            <li><Link to= "tips" smooth ={true} duration= {100}>FOOD TIPS</Link></li>
+            <li><ScrollLink to="about" smooth ={true} duration= {100}>ABOUT</ScrollLink></li>
+            <li><ScrollLink to= "works" smooth ={true} duration= {100}>HOW IT WORKS</ScrollLink></li>
+            <li><ScrollLink to= "tips" smooth ={true} duration= {100}>FOOD TIPS</ScrollLink></li>
         </ul>
 
-        <button className="cta-top">ASK THE AI</button>
-
        </nav>
+
+       <RouterLink to="/chatbot" className="cta-top">ASK THE AI</RouterLink>
+    
+       </div>
             
     
     )
