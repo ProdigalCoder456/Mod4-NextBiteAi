@@ -12,11 +12,13 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 
-# Load model and data once
+# model and data loading
+
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 model = genai.GenerativeModel('gemini-2.5-flash')
 
-# Load recipes (save JSON locally)
+# loading and preprocessing recipe data 
+
 recipes = pd.read_json("recipes.json")
 recipes = recipes.dropna(subset=['ingredients', 'directions'])
 recipes['ingredients'] = recipes['ingredients'].apply(lambda ings: [i.lower().strip() for i in ings])
@@ -24,15 +26,22 @@ recipes['ingredient_text'] = recipes['ingredients'].apply(lambda x: ', '.join(x)
 recipes['directions'] = recipes['directions'].apply(lambda steps: ' '.join(steps))
 recipes = recipes[recipes['categories'].apply(lambda cats: any('easy' in c.lower() or 'quick' in c.lower() for c in cats))]
 
-# Precompute embeddings
+# converts ingredient text to embeddings (numerical vector)
+
 recipes['embedding'] = recipes['ingredient_text'].apply(lambda text: embedding_model.encode(text))
+
+# finds similar recipes based on user ingredients
 
 def find_similar_recipes(user_ingredients):
     user_text = ', '.join(user_ingredients).lower()
+
+    # retrieve
     user_vector = embedding_model.encode(user_text)
     similarities = recipes['embedding'].apply(lambda vec: cosine_similarity([user_vector], [vec])[0][0])
     top_idxs = np.argsort(similarities)[-3:][::-1]
     return recipes.iloc[top_idxs][['title', 'ingredients', 'directions']]
+
+# generates recipes with Gemini
 
 def generate_recipe_gemini(ingredients, similar_recipes, conditions=None):
     ingredient_text = ', '.join(ingredients)
@@ -54,10 +63,13 @@ def generate_recipe_gemini(ingredients, similar_recipes, conditions=None):
                 condition_lines.append("Use whole ingredients and healthy cooking methods.")
 
     condition_text = "\n".join(condition_lines)
+
+    # context
     context = ""
     for _, row in similar_recipes.iterrows():
         context += f"Title: {row['title']}\nIngredients: {', '.join(row['ingredients'])}\nDirections: {row['directions']}\n\n"
 
+    # generate 
     prompt = (
         f"You are a helpful cooking assistant.\n"
         f"User has the ingredients: {ingredient_text}.\n"
