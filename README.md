@@ -7,7 +7,7 @@ The application exists to promote sustainability, help users cook creatively wit
 # Developers: Diana Montero & Joshua Moore
 
 # Description of AI Model
-Gemini 2.5 Flash, combined with embeddings and retrieval of similar recipes, allows NextBite to transform user inputs into smart, personalized recipe suggestions efficiently and accurately.
+Gemini 2.5 Flash, combined with embeddings and a Retrieval-Augmented Generation (RAG) system, allows NextBite to create smart, personalized recipes. The RAG system works like this: first, it finds recipes that are similar to your ingredients from the database using embeddings (which help the AI understand the meaning of the ingredients). Then, it feeds these similar recipes to Gemini, so the AI can generate a new, personalized recipe that makes sense with what you have and any dietary conditions.
 
 # Installation Instructions - set up project locally 
 
