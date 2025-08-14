@@ -1,3 +1,5 @@
+// footer 
+
 import '../Footer.css'
 import {ChefHat} from 'lucide-react';
 
