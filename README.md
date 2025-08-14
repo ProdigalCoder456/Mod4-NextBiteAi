@@ -19,9 +19,8 @@ Gemini 2.5 Flash, combined with embeddings and retrieval of similar recipes, all
 ## Set up the backend
 
 - Navigate to the Backend/nextibiteaibot directory
-- Create a virtual environment and activate it 
-
- -  python -m venv venv
+- Create a virtual environment and activate it
+   - python -m venv venv
 #### source venv/bin/activate
 
 ### Install dependencies
