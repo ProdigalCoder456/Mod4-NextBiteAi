@@ -13,8 +13,8 @@ Gemini 2.5 Flash, combined with embeddings and retrieval of similar recipes, all
 
 ## Clone the repository
 
-### git clone https://github.com/dianamontero7/NextBite.git
-### cd NextBite
+- git clone https://github.com/dianamontero7/NextBite.git
+- cd NextBite
 
 ## Set up the backend
 
