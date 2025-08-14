@@ -21,29 +21,28 @@ Gemini 2.5 Flash, combined with embeddings and retrieval of similar recipes, all
 - Navigate to the Backend/nextibiteaibot directory
 - Create a virtual environment and activate it
    - python -m venv venv
-#### source venv/bin/activate
+   - source venv/bin/activate
 
-### Install dependencies
-##### pip install -r requirements.txt
+- Install dependencies
+   - pip install -r requirements.txt
 
-### Run the backend server
-#### uvicorn main:app --reload 
-
+- Run the backend server
+   - uvicorn main:app --reload 
 
 ## Setup the frontend
-### Navigate to the Frontedn directory
-### Install dependencies
 
-#### npm install
-### Start the frontend development server
-#### npm run dev
+- Navigate to the Frontedn directory
+- Install dependencies
+   - npm install
+- Start the frontend development server
+   - npm run dev
 
 # Usage Guide
 
 - User interaction: Input available leftover ingredients and dietary preferences (optional)
 - Backend Processing: Handles requests, finds similar recipes, and communicates with the Gemini AI model to generate new recipes
 - Frontend Display: Shows AI-generated recipes in a clean, easy-to-read interface.
-- Database Storage: Stores user interactions and generated recipes in MongoDB for future reference
+- Database Storage: Stores user interactions and generated recipes in MongoDB Atlas for future reference
 
 # Features
 
@@ -57,7 +56,7 @@ Gemini 2.5 Flash, combined with embeddings and retrieval of similar recipes, all
 
 - User-Friendly Interface: Clean, responsive frontend.
 
-- Database Integration: Saves recipes and user inputs in MongoDB.
+- Database Integration: Saves recipes and user inputs in MongoDB Atlas.
 
 # Tech Stack
 
@@ -67,7 +66,7 @@ Gemini 2.5 Flash, combined with embeddings and retrieval of similar recipes, all
 
 - AI Model: Google Gemini 2.5 Flash (for natural language recipe generation)
 
-- Database: MongoDB
+- Database: MongoDB Atlas 
 
 - Deployment: TBA
 
