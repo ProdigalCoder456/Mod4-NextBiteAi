@@ -3,7 +3,7 @@
 
 .foodtips{
     text-align: center;
-    padding: 4rem 15rem 6rem;
+    padding: 6rem 15rem 6rem;
     background: rgba(249, 250, 251, 1);;
 }
 
@@ -14,6 +14,7 @@
     font-weight: 550;
     font-size: 2.3rem;
     margin-bottom: 12px;
+    cursor: default;
   
 }
 
@@ -23,6 +24,7 @@
     font-weight: 300;
     font-size: 1.2rem;
     color: black;
+    cursor: default;
 }
 
 .foodtips-titles{
@@ -48,17 +50,27 @@
     gap: 10px; 
 }
 
+.accordion-button:not(.collapsed) {
+  color: black !important;
+  background-color: #00996638 !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+.accordion-button:focus,
+.accordion-button:active {
+  box-shadow: none !important;
+}
+
+
+
 .accordion-button:hover{
     text-decoration: underline;
     color: #000000; 
-  }
-
-.accordion-button:focus {
-    outline: none !important;
-    box-shadow: none !important;
+    background-color: #00996638;
   }
   
-
+  
 .accordion {
     max-width: 700px;
     margin: 0 auto;
@@ -99,8 +111,3 @@
   line-height: 22px;
   color: rgba(0, 0, 0, 0.576)
 }
-
-
-/* button.accordion-button:focus {
-  background-color: rgb(235, 231, 231);
-} */

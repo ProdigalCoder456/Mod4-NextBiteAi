@@ -2,7 +2,8 @@
 
 .about {
     background: rgba(249, 250, 251, 1);
-    padding: 6rem 15rem;
+    padding: 6rem 15rem 6rem;
+    cursor: default;
 }
 
 .about-info{

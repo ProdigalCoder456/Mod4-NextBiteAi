@@ -10,14 +10,14 @@
 
 .hero h1{
     font-size: 2.5rem;
-    background: none;
+    background: none; 
     font-family: "Alexandria", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 4rem; 
     color: white;
     text-align: center;
-
+    cursor: default;
 }
 
 .hero p{
@@ -29,6 +29,7 @@
     color: rgba(255, 255, 255, 0.827);
     text-align: center; 
     margin-top: 3px;
+    cursor: default;
 }
 
 .tryitnowbutton{

@@ -3,7 +3,7 @@
 
 .how-it-works{
     text-align: center;
-    padding: 4rem 15rem 6rem;
+    padding: 6rem 15rem 6rem;
 }
 
 .how-it-works h1{
@@ -13,6 +13,7 @@
     font-weight: 550;
     font-size: 2.3rem;
     margin-bottom: 12px;
+    cursor: default;
 }
 
 .how-it-works p{
@@ -22,6 +23,7 @@
     font-size: 1.2rem;
     color: black;
     margin-bottom: 2.5rem;
+    cursor: default;
 }
 
 .card-img-top {
@@ -53,6 +55,7 @@ p.card-text{
     transition: transform 0.4s ease-in-out;
     overflow: hidden;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .card:hover{

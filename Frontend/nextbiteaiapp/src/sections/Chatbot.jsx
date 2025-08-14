@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../Chatbot.css';
-import Recipecard from '../components/Recipecard';
+import RecipeCard from '../components/Recipecard';
 
 const Chatbot = () => {
   const [ingredients, setIngredients] = useState('');
@@ -11,13 +11,19 @@ const Chatbot = () => {
   const handleSubmit = async () => {
     if (!ingredients.trim()) return;
 
-    const userMessage = `Ingredients: ${ingredients}\nConditions: ${conditions}`;
+    // add the user's message to chat
+    
+    const userMessage = `Leftover Ingredients: ${ingredients}\nDietary Preferences: ${conditions}`;
     setMessages(prev => [...prev, { sender: 'user', text: userMessage }]);
     setLoading(true);
+
+    // prepare input arrays for backend request 
 
     const inputIngredients = ingredients.split(',').map(i => i.trim());
     const inputConditions = conditions.split(',').map(c => c.trim());
 
+    // send ingredients and preferences to backend API
+    
     try {
       const res = await fetch('http://localhost:8000/chat', {
         method: 'POST',
@@ -27,9 +33,17 @@ const Chatbot = () => {
 
       const data = await res.json();
 
-      setMessages(prev => [...prev, { sender: 'bot', text: data.recipe }]);
+      // removes markdown formatting for a cleaner display
+
+      const plainTextRecipe = data.recipe
+        .replace(/\*\*(.*?)\*\*/g, '$1') 
+        .replace(/`{1,3}(.*?)`{1,3}/g, '$1') 
+        .replace(/#+\s?(.*)/g, '$1'); 
+
+      // add the bot's response to chat
+      setMessages(prev => [...prev, { sender: 'bot', text: plainTextRecipe }]);
     } catch (err) {
-      setMessages(prev => [...prev, { sender: 'bot', text: '⚠️ Error connecting to backend.' }]);
+      setMessages(prev => [...prev, { sender: 'bot', text:  'Error connecting to backend.' }]);
     }
 
     setLoading(false);
@@ -43,16 +57,14 @@ const Chatbot = () => {
 
       <div className="chat-window">
         {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`chat-message ${msg.sender === 'user' ? 'user-msg' : 'bot-msg'}`}
-          >
-            {msg.sender === 'bot' && msg.text.includes('**Title:') ? (
-              <Recipecard text={msg.text} />
-            ) : (
-              msg.text.split('\n').map((line, i) => <div key={i}>{line}</div>)
-            )}
-          </div>
+          <div key={index} className={`chat-message ${msg.sender === 'user' ? 'user-msg' : 'bot-msg'}`}>
+
+          {msg.sender === 'bot' ? (
+            <RecipeCard recipeText={msg.text} />
+          ) : (
+            msg.text.split('\n').map((line, i) => <div key={i}>{line}</div>)
+          )}
+        </div>
         ))}
 
         {loading && (
@@ -62,20 +74,24 @@ const Chatbot = () => {
         )}
       </div>
 
-      <div className="chat-input-area">
+        <div className="disclaimer-message"> Content is AI-generated and may be inaccurate. Use your best judgment.</div>
+
+        <div className="chat-input-area">
         <input
           type="text"
-          placeholder="Ingredients (e.g. rice, beans)"
+          placeholder="Enter leftover ingredients..."
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
         />
         <input
           type="text"
-          placeholder="Conditions (e.g. vegan, gluten-free)"
+          placeholder="Add any dietary preferences"
           value={conditions}
           onChange={(e) => setConditions(e.target.value)}
         />
-        <button onClick={handleSubmit}>Send</button>
+        <button onClick={handleSubmit}>Generate Recipe</button>
+
+
       </div>
     </div>
   );
